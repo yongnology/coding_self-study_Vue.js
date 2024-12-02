@@ -51,3 +51,86 @@ SFC 는 <script>, <template>, <style> 태그로 영역을 구분한다.
 3.2.3 SFC의 구조
 SFC는 일반적으로 <script>, <template>, <style> 3가지 태그 영역으로 구성
 주의점. SFC 파일에 <template>태그를 1개 이상 포함해야 한다.
+
+3.3 기본 문법 다루기
+
+3.3.1 뷰 애플리케이션 생성하기
+
+※ 신규 ch03 생성
+
+=============================================
+ npm create vue@latest
+
+Vue.js - The Progressive JavaScript Framework
+
+√ Project name: ... ch03
+√ Add TypeScript? ... No / Yes
+√ Add JSX Support? ... No / Yes
+√ Add Vue Router for Single Page Application development? ... No 
+√ Add Pinia for state management? ... No 
+√ Add Vitest for Unit Testing? ... No 
+√ Add an End-to-End Testing Solution? » No
+√ Add ESLint for code quality? » No
+
+=============================================
+
+asserts 폴더 삭제
+component 폴더 삭제
+
+3.3.2 옵션스 API 사용하기
+SFC 파일의 <script> 태그 영역에는 SFC 파일에서 사용할 로직을 자바스크립트로 작성한다.
+이 때 사용하는 문법이 2가지가 있는데, 그중 하나가 SFC 파일의 기본 형식에서 언급한 옵션스 API
+
+뷰에서 export default 키워드로 내보내는 객체는 뷰에서 약속된 속성을 사용해야 한다.
+이러한 속성을 지칭할 때 옵션api, 옵션 속성 이라고 한다.
+
+3.3.3 데이터 정의하기
+<script> 태그 영역에 로직을 작성할 때 가장 기본이 되는 개념은 데이터
+데이터는 컴포넌트 전반에 걸쳐서 사용할 값.
+
+예시)
+<script>
+export default {
+    data: function() {
+        return {};
+    },
+}
+</script>
+
+3.3.4 데이터 보간 사용하기
+data 옵션 속성으로 선언한 데이터 속성은 <template> 태그 영역에서 사용할 수 있다.
+이 때 뷰에서 제공하는 텍스트 보간을 사용한다.
+콧수염 문법 {{ 데이터 속성 }} 으로 구성한다.
+
+예시)
+<script>
+export default {
+    data() {
+        return {
+            name: '철수',
+            apge: 19,
+        };
+    },
+}
+</script>
+<template>
+    {{ name }}
+    {{ age  }}
+</template>
+
+3.3.5 디렉티브 사용하기
+디렉티브(directive)는 뷰에서만 사용하는 문법, 접두사 'v-'가 붙는다.
+
+■ v-html
+data 옵션 속성으로 정의한 데이터 속성을 <template> 태그 영역에서 출력할 때
+
+■ v-text
+값을 단순하게 텍스트로 출력하게 하는 디렉티브
+
+■ v-pre
+컴파일 할 때 <template> 태그 영역을 건너뛰게 하는 디렉티브
+
+■ v-bind
+HTML 태그의 콘텐츠(contents) 가 아니라 속성(attribute)에 데이터를 연결할 때
+- 축약형은 Vue 3.4(package.json 파일에서 "vue" 의 값이 3.4.x 이상)부터 
+  속성과 값이 같은 이름이면 단축할 수 있는 기능이 추가.
