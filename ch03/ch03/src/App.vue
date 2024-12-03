@@ -11,6 +11,9 @@ export default {
 
       visible: true,
       unvisible: false,
+
+      condition: 'A',
+      condition2: 'C',
     };
   },
 }
@@ -23,8 +26,25 @@ export default {
    <!-- <h1 v-bind:class="className">Hello, Vue JS !!!</h1> -->
    <!-- <h2 :class="className2">Hello, Vue</h2> 축약형 -->
    <!-- <h3 :class>Hello, Vue 3.4 upper JS</h3> -->
+<!-- 
     <p v-if="visible">이 요소는 렌더링됩니다.</p>
     <p v-if="unvisible">이 요소는 렌더링 되지 않습니다.</p>
+     -->
+     <div> 
+      <!-- Vue 3에서는 여러 개의 루트 요소를 지원하지 않기 때문에, 항상 하나의 루트 요소로 감싸는 것이 중요 -->
+      <p v-if="condition === 'A' ">condition 데이터 값은 A입니다.</p>
+      <p v-else-if="condition === 'B' ">condition2 데이터 값은 B입니다.</p>
+      <p v-else-if="condition === 'C' ">condition2 데이터 값은 C입니다.</p>
+      <p v-else-if="condition === 'D' ">condition2 데이터 값은 D입니다.</p>
+      <p v-else>어떤 조건에도 해당하지 않습니다</p>
+
+      <p v-if="condition2 === 'A' ">condition2 데이터 값은 A입니다.</p>
+      <p v-else-if="condition2 === 'B' ">condition2 데이터 값은 B입니다.</p>
+      <p v-else-if="condition2 === 'C' ">condition2 데이터 값은 C입니다.</p>
+      <p v-else-if="condition2 === 'D' ">condition2 데이터 값은 D입니다.</p>
+      <p v-else>어떤 조건에도 해당하지 않습니다</p>
+     </div>
+
 </template>
 
 <style>
