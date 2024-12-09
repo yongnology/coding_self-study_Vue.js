@@ -1,16 +1,14 @@
 <script>
 export default {
-  data() {
-
-  },
   methods: {
-    clickHandler( ) {  // ES6의 단축 메서드명으로 표기
-      alert('click 함');
-      console.log("클릭함");
+    clickHandler(event) {
+      console.log(event);
     },
-    clickHandler2( ) {  // ES6의 단축 메서드명으로 표기
-      alert('dbclick 함');
-      console.log("db클릭함");
+    clickHandler2(event) {
+      console.log(event);
+    },
+    clickHandler3( event, message ) {
+      console.log(event, message);
     },
   },
 };
@@ -18,8 +16,9 @@ export default {
 
 <template>
   <div>
-    <button type="button" v-on:click="clickHandler">클릭</button>
-    <button type="button" v-on:dblclick="clickHandler2">클릭2</button>
+    <button type="button" @click="clickHandler($event)">클릭</button>
+    <button type="button" @click="($event) => clickHandler2($event)">클릭2</button>
+    <button type="button" @click="clickHandler3($event, 'hello_handler')">클릭</button>
   </div>
 </template>
 
