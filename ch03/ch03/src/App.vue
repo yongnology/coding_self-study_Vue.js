@@ -1,32 +1,25 @@
 <script>
 export default {
   data() {
-    return {
-     fruits: ['apple', 'banana', 'orange'],
-     
-     user: {
-      name: 'John',
-      age: 20,
-      gender: 'male',
-     }
-    };
+
   },
-}
+  methods: {
+    clickHandler( ) {  // ES6의 단축 메서드명으로 표기
+      alert('click 함');
+      console.log("클릭함");
+    },
+    clickHandler2( ) {  // ES6의 단축 메서드명으로 표기
+      alert('dbclick 함');
+      console.log("db클릭함");
+    },
+  },
+};
 </script>
 
 <template>
   <div>
-    <h1>fruits 데이터의 반복 결과</h1>
-    <ul>
-    <li v-for="(fruit, index) in fruits" :key="index">
-      인덱스 : {{ index }}, 값: {{ fruit }}
-    </li>
-  </ul>
-  <hr>
-
-  <li v-for="(value, key, index) in user" :key="index">
-    {{ index }}: {{ key }} : {{ value }}
-  </li>
+    <button type="button" v-on:click="clickHandler">클릭</button>
+    <button type="button" v-on:dblclick="clickHandler2">클릭2</button>
   </div>
 </template>
 

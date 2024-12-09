@@ -152,4 +152,14 @@ v-show 디렉티브 요소를 렌더링하고 CSS의 display 속성으로 감춘
 반복적으로 렌더링하는 HTML 요소를 생성하는데 사용
 EX) v-for="값 in 배열" key="고유값"
     v-for="(값, 인덱스) in 배열" key="고유값"
-    
+
+3.4 이벤트 다루기
+자바스크립트에서 이벤트(event)는 사용자와 상호작용해서 발생하는 일련의 사건을 의미
+
+3.4.1 v-on 디렉티브와 methods 옵션 속성으로 이벤트 연결하기
+    -- methods는 옵션 속성으로 정의
+    <script>
+        export default {
+            method: {}, // 메서드 정의
+        }
+    </script>
